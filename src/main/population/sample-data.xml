@@ -10,6 +10,64 @@
 
 	<import resource="conversion-service.xml" />
 	
+	<bean name="employer1UserAccount" class="acme.framework.entities.userAccount">
+		<property name="username" value="employer1" />
+		<property name="password" value="employer1" />
+		<property name="enable" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Employer" />
+				<property name="surname" value="One" />
+				<property name="email" value="employer1@acme.com" />
+			</bean>
+			</property>
+		<property name="roles">
+			<list>
+			<ref bean="employer1Employer"/>
+			<ref bean="employer1Authenticated"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="employer1Employer" class="acme.entities.roles.Employer">
+		<property name="company" value="Employer 1, Inc."/>
+		<property name="sector" value="Sector 1"/>	
+		<property name="userAccount" value="employer1UserAccount"/>
+	</bean>
+	
+	<bean name="employer1Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" value="employer1UserAccount"/>
+	</bean>
+	
+	<bean name="worker1UserAccount" class="acme.framework.entities.userAccount">
+		<property name="username" value="worker1" />
+		<property name="password" value="worker1" />
+		<property name="enable" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Worker" />
+				<property name="surname" value="One" />
+				<property name="email" value="worker1@acme.com" />
+			</bean>
+			</property>
+		<property name="roles">
+			<list>
+			<ref bean="worker1Worker"/>
+			<ref bean="worker1Authenticated"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="worker1Worker" class="acme.entities.roles.Worker">
+		<property name="qualificationsRecord" value="Worker 1 qualifications"/>
+		<property name="skillsRecord" value="Worker 1 skills"/>	
+		<property name="userAccount" value="worker1UserAccount"/>
+	</bean>
+	
+	<bean name="employer1Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" value="worker1UserAccount"/>
+	</bean>
+	
 	<!--Annoucement -->
 
 	<bean id="announcement01" class="acme.entities.announcements.Announcement">
