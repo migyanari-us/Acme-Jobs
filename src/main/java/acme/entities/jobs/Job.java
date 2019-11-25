@@ -16,6 +16,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.entities.roles.Employer;
 import acme.framework.datatypes.Money;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
@@ -48,7 +49,7 @@ public class Job extends DomainEntity {
 	private Money				salary;
 
 	@URL
-	private Integer				moreInfo;
+	private String				moreInfo;
 
 	private boolean				finalMode;
 
