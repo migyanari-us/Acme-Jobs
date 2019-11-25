@@ -182,8 +182,8 @@
 		<property name="stars" value="0" />
 		<property name="incorporated" value="1" />
 	</bean>
+	
 	<!-- Investor Records -->
-
 	<bean id="investorRecords01"
 		class="acme.entities.investorRecords.InvestorRecord">
 		<property name="investor" value="Elon Musk" />
@@ -202,7 +202,7 @@
 		<property name="stars" value="5" />
 	</bean>
   
-  <!--Offer -->
+	<!--Offer -->
 
 	<bean id="offer01" class="acme.entities.offers.Offer">
 		<property name="ticker" value="OABCD-01234" />
@@ -234,7 +234,7 @@
 		<property name="moneyMin" value="€150.00" />
   </bean>
   
-  <!--Requestt -->
+	<!--Requestt -->
   
 		<bean id="requestt01" class="acme.entities.requests.Requestt">
 		<property name="title" value="Sample request 01" />
@@ -253,4 +253,77 @@
 		<property name="reward" value="456€" />
 		<property name="ticker" value="Raaaa-54321" />
 	</bean>
+	
+	<!-- Jobs -->
+	<bean id="job01" class="acme.entities.jobs.Job">
+		<property name="reference" value="EMP1-JOB1" />
+		<property name="status" value="Published" />
+		<property name="title" value="Sample job 01" />
+		<property name="deadline" value="2020/09/01 12:12" />
+		<property name="salary" value="$ 2,000.00" />
+		<property name="description" value="descripcionnnw" />
+		<property name="moreInfo" value="http://wwww.ej.com" />
+		<property name="finalMode" value="true" />
+		<property name="employer" value="employer1Employer" />
+	</bean>
+	
+	<bean id="job02" class="acme.entities.jobs.Job">
+		<property name="reference" value="EMP2-JOB2" />
+		<property name="status" value="Published" />
+		<property name="title" value="Sample job 02" />
+		<property name="deadline" value="2020/03/21 21:09" />
+		<property name="salary" value="$ 1,000.00" />
+		<property name="description" value="descripcionn22" />
+		<property name="moreInfo" value="http://wwww.ej2.com" />
+		<property name="finalMode" value="true" />
+		<property name="employer" value="employer2Employer" />
+	</bean>
+	
+	<!-- Desciptors -->
+	<bean id="descriptor01" class="acme.entities.descriptors.Descriptor">
+		<property name="description" value="Trabajo de ejemplo 1" />
+		<property name="job" value="job01" />
+	</bean>
+	
+	<bean id="descriptor02" class="acme.entities.descriptors.Descriptor">
+		<property name="description" value="Trabajo de ejemplo 2" />
+		<property name="job" value="job02" />
+	</bean>
+	
+	<!-- Duties -->
+	<bean id="duty01" class="acme.entities.duties.Duty">
+		<property name="title" value="Duty1" />
+		<property name="description" value="Trabajando" />
+		<property name="descriptor" value="descriptor01" />
+	</bean>
+	
+	<bean id="duty02" class="acme.entities.duties.Duty">
+		<property name="title" value="Duty2" />
+		<property name="description" value="Trabajando x2" />
+		<property name="descriptor" value="descriptor02" />
+	</bean>
+	
+	<!-- Applications -->
+	<bean id="application01" class="acme.entities.applications.Application">
+		<property name="reference" value="EMP1-JOB1:APP1" />
+		<property name="moment" value="2019/10/05 2:00" />
+		<property name="status" value="Pending" />
+		<property name="statement" value="Me gusta trabajar, por eso quiero este trabajo" />
+		<property name="skills" value="Sociable" />
+		<property name="qualifications" value="Inglés B2" />
+		<property name="job" value="job01" />
+		<property name="worker" value="worker1Worker" />
+  </bean>
+  
+  <bean id="application02" class="acme.entities.applications.Application">
+		<property name="reference" value="EMP1-JOB2:APP2" />
+		<property name="moment" value="2019/11/05 2:00" />
+		<property name="status" value="Pending" />
+		<property name="statement" value="Me gusta trabajar, por eso quiero este trabajo otra vez" />
+		<property name="skills" value="Amigable" />
+		<property name="qualifications" value="Francés B2" />
+		<property name="job" value="job02" />
+		<property name="worker" value="worker1Worker" />
+  </bean>
+	
 </beans>
