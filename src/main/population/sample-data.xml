@@ -67,6 +67,35 @@
 	<bean name="worker1Authenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="worker1UserAccount"/>
 	</bean>
+  
+  <bean name="auditor1UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="auditor1" />
+		<property name="password" value="auditor1" />
+		<property name="enable" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Auditor" />
+				<property name="surname" value="One" />
+				<property name="email" value="auditor1@acme.com" />
+			</bean>
+			</property>
+		<property name="roles">
+			<list>
+			<ref bean="auditor1Auditor"/>
+			<ref bean="auditor1Authenticated"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="auditor1Auditor" class="acme.entities.roles.Auditor">
+		<property name="qualifications" value="Auditor 1 qualifications"/>
+		<property name="skills" value="Auditor 1 skills"/>	
+		<property name="userAccount" ref="auditor1UserAccount"/>
+	</bean>
+	
+	<bean name="auditor1Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="auditor1UserAccount"/>
+	</bean>
 	
 	<!--Annoucement -->
 
@@ -90,21 +119,6 @@
 		<property name="moreInfo" value="http://www.stackoverflow.com" />
 		<property name="text" value="Description for Sample announcement 03" />
 	</bean>
-  
-  	<bean id="announcement04" class="acme.entities.announcements.Announcement">
-		<property name="title" value="Sample announcement 04" />
-		<property name="moment" value="2019/10/05 12:12" />
-		<property name="moreInfo" value="http://www.stackoverflow.com" />
-		<property name="text" value="Description for Sample announcement 04" />
-	</bean>
-	
-	<bean id="announcement05" class="acme.entities.announcements.Announcement">
-		<property name="title" value="Sample announcement 05" />
-		<property name="moment" value="2019/05/01 12:12" />
-		<property name="moreInfo" value="http://www.stackoverflow.com" />
-		<property name="text" value="Description for Sample announcement 05" />
-	</bean>
-
   
   <!--Challenge -->
 	
@@ -157,31 +171,6 @@
 		<property name="email" value="trevor@company.com" />
 		<property name="stars" value="5" />
 		<property name="incorporated" value="1" />
-
-	</bean>
-	<bean id="company03" class="acme.entities.companies.Company">
-		<property name="name" value="Trevor Philips, Inc." />
-		<property name="sector" value="Economy" />
-		<property name="ceo" value="Trevor Philips" />
-		<property name="activities" value="Description of the activities" />
-		<property name="web" value="http://www.example.com" />
-		<property name="phone" value="+4 (5) 999999" />
-		<property name="email" value="trevor@company.com" />
-		<property name="stars" value="" />
-		<property name="incorporated" value="1" />
-
-	</bean>
-	<bean id="company04" class="acme.entities.companies.Company">
-		<property name="name" value="Trevor Philips, Inc." />
-		<property name="sector" value="Economy" />
-		<property name="ceo" value="Trevor Philips" />
-		<property name="activities" value="Description of the activities" />
-		<property name="web" value="http://www.example.com" />
-		<property name="phone" value="+999 (9999) 9999999999" />
-		<property name="email" value="trevor@company.com" />
-		<property name="stars" value="0" />
-		<property name="incorporated" value="1" />
-	</bean>
 	
 	<!-- Investor Records -->
 	<bean id="investorRecords01"
