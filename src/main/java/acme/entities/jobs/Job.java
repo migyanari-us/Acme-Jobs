@@ -49,7 +49,7 @@ public class Job extends DomainEntity {
 	private Money				salary;
 
 	@URL
-	private Integer				moreInfo;
+	private String				moreInfo;
 
 	private boolean				finalMode;
 
