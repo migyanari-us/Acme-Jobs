@@ -116,17 +116,9 @@
     create table `spam_filter` (
        `id` integer not null,
         `version` integer not null,
-
         `bad_words` varchar(255),
-
         `threshold` double precision,
         primary key (`id`)
-    ) engine=InnoDB;
-
-
-    create table `spam_filter_bad_words` (
-       `spam_filter_id` integer not null,
-        `bad_words` varchar(255)
     ) engine=InnoDB;
 
     create table `user_account` (
@@ -180,10 +172,3 @@
        add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
-
-
-    alter table `spam_filter_bad_words` 
-       add constraint `FK3q0sjl7qnwukxhnt9atkhc6xy` 
-       foreign key (`spam_filter_id`) 
-       references `spam_filter` (`id`);
-

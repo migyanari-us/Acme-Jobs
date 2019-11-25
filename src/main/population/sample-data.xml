@@ -10,10 +10,10 @@
 
 	<import resource="conversion-service.xml" />
 	
-	<bean name="employer1UserAccount" class="acme.framework.entities.userAccount">
+	<bean name="employer1UserAccount" class="acme.framework.entities.UserAccount">
 		<property name="username" value="employer1" />
 		<property name="password" value="employer1" />
-		<property name="enable" value="true" />
+		<property name="enabled" value="true" />
 		<property name="identity">
 			<bean class="acme.datatypes.UserIdentity">
 				<property name="name" value="Employer" />
@@ -32,14 +32,14 @@
 	<bean name="employer1Employer" class="acme.entities.roles.Employer">
 		<property name="company" value="Employer 1, Inc."/>
 		<property name="sector" value="Sector 1"/>	
-		<property name="userAccount" value="employer1UserAccount"/>
+		<property name="userAccount" ref="employer1UserAccount"/>
 	</bean>
 	
 	<bean name="employer1Authenticated" class="acme.framework.entities.Authenticated">
-		<property name="userAccount" value="employer1UserAccount"/>
+		<property name="userAccount" ref="employer1UserAccount"/>
 	</bean>
 	
-	<bean name="worker1UserAccount" class="acme.framework.entities.userAccount">
+	<bean name="worker1UserAccount" class="acme.framework.entities.UserAccount">
 		<property name="username" value="worker1" />
 		<property name="password" value="worker1" />
 		<property name="enable" value="true" />
@@ -59,13 +59,42 @@
 	</bean>
 	
 	<bean name="worker1Worker" class="acme.entities.roles.Worker">
-		<property name="qualificationsRecord" value="Worker 1 qualifications"/>
-		<property name="skillsRecord" value="Worker 1 skills"/>	
-		<property name="userAccount" value="worker1UserAccount"/>
+		<property name="qualifications" value="Worker 1 qualifications"/>
+		<property name="skills" value="Worker 1 skills"/>	
+		<property name="userAccount" ref="worker1UserAccount"/>
 	</bean>
 	
-	<bean name="employer1Authenticated" class="acme.framework.entities.Authenticated">
-		<property name="userAccount" value="worker1UserAccount"/>
+	<bean name="worker1Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="worker1UserAccount"/>
+	</bean>
+	
+	<bean name="auditor1UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="auditor1" />
+		<property name="password" value="auditor1" />
+		<property name="enable" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Auditor" />
+				<property name="surname" value="One" />
+				<property name="email" value="auditor1@acme.com" />
+			</bean>
+			</property>
+		<property name="roles">
+			<list>
+			<ref bean="auditor1Auditor"/>
+			<ref bean="auditor1Authenticated"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="auditor1Auditor" class="acme.entities.roles.Auditor">
+		<property name="qualifications" value="Auditor 1 qualifications"/>
+		<property name="skills" value="Auditor 1 skills"/>	
+		<property name="userAccount" ref="auditor1UserAccount"/>
+	</bean>
+	
+	<bean name="auditor1Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="auditor1UserAccount"/>
 	</bean>
 	
 	<!--Annoucement -->
