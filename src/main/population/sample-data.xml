@@ -59,8 +59,8 @@
 	</bean>
 	
 	<bean name="worker1Worker" class="acme.entities.roles.Worker">
-		<property name="qualificationsRecord" value="Worker 1 qualifications"/>
-		<property name="skillsRecord" value="Worker 1 skills"/>	
+		<property name="qualifications" value="Worker 1 qualifications"/>
+		<property name="skills" value="Worker 1 skills"/>	
 		<property name="userAccount" ref="worker1UserAccount"/>
 	</bean>
 	
@@ -71,7 +71,7 @@
   <bean name="auditor1UserAccount" class="acme.framework.entities.UserAccount">
 		<property name="username" value="auditor1" />
 		<property name="password" value="auditor1" />
-		<property name="enable" value="true" />
+		<property name="enabled" value="true" />
 		<property name="identity">
 			<bean class="acme.datatypes.UserIdentity">
 				<property name="name" value="Auditor" />
@@ -88,8 +88,8 @@
 	</bean>
 	
 	<bean name="auditor1Auditor" class="acme.entities.roles.Auditor">
-		<property name="qualifications" value="Auditor 1 qualifications"/>
-		<property name="skills" value="Auditor 1 skills"/>	
+		<property name="firm" value="Auditor 1 firm"/>
+		<property name="responsibilityStatement" value="Auditor 1 responsibility statement"/>	
 		<property name="userAccount" ref="auditor1UserAccount"/>
 	</bean>
 	
@@ -171,10 +171,10 @@
 		<property name="email" value="trevor@company.com" />
 		<property name="stars" value="5" />
 		<property name="incorporated" value="1" />
+	</bean>
 	
 	<!-- Investor Records -->
-	<bean id="investorRecords01"
-		class="acme.entities.investorRecords.InvestorRecord">
+	<bean id="investorRecords01" class="acme.entities.investorRecords.InvestorRecord">
 		<property name="investor" value="Elon Musk" />
 		<property name="sector" value="Technology" />
 		<property name="investingStatement"
@@ -182,8 +182,7 @@
 		<property name="stars" value="5" />
 	</bean>
 
-	<bean id="investorRecords02"
-		class="acme.entities.investorRecords.InvestorRecord">
+	<bean id="investorRecords02" class="acme.entities.investorRecords.InvestorRecord">
 		<property name="investor" value="Warren Buffett" />
 		<property name="sector" value="Real Estate" />
 		<property name="investingStatement"
