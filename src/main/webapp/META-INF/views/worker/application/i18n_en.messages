@@ -20,4 +20,4 @@ worker.application.form.button.return = Return
 
 worker.application.list.label.reference = Reference Number
 worker.application.list.label.status = Status
-worker.application.list.label.moment = Date
+worker.application.list.label.moment = Creation Date
