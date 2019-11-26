@@ -314,4 +314,25 @@
 		<property name="worker" ref="worker1Worker" />
   </bean>
 	
+	<!-- Audit Records -->
+  <bean id = "auditRecord01" class= "acme.entities.auditRecord.AuditRecord">
+  		<property name="title"  value= "Audit Record 01"></property>
+  		<property name="status"  value= "published"></property>
+  		<property name="moment"  value= "2019/11/05 1:00"></property>
+  		<property name="body"  value= "Esto es el Audit Record 01"></property>
+  		<property name="job"  ref= "job01"></property>
+  		<property name="auditor"  ref= "auditor1Auditor"></property>
+  </bean>  		
+  		
+  <bean id = "auditRecord02" class= "acme.entities.auditRecord.AuditRecord">
+  		<property name="title"  value= "Audit Record 02"></property>
+  		<property name="status"  value= "draft"></property>
+  		<property name="moment"  value= "2019/11/06 1:00"></property>
+  		<property name="body"  value= "Esto es el Audit Record 02"></property>
+  		<property name="job"  ref= "job02"></property>
+  		<property name="auditor"  ref= "auditor1Auditor"></property>
+  </bean>
+	
+	
+	
 </beans>
