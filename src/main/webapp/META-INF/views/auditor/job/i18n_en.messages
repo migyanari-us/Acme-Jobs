@@ -13,7 +13,7 @@ auditor.job.form.label.title = Title:
 auditor.job.form.label.reference = Reference:
 auditor.job.form.label.moment = Date:
 auditor.job.form.label.deadline = Deadline:
-auditor.job.form.label.moreInfo = More Info:
+auditor.job.form.label.moreInfo = More info:
 auditor.job.form.label.auditRecord = Audit Record:
 auditor.job.form.label.salary = Salary: 
 
@@ -24,5 +24,4 @@ auditor.job.list.label.moment = Date
 auditor.job.list.label.reference = Reference
 auditor.job.list.label.title = Title
 auditor.job.list.label.deadline = Deadline
-auditor.job.list.label.moreInfo = More Info
 auditor.job.list.label.salary = Salary 

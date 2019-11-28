@@ -96,8 +96,8 @@
 	<bean name="auditor1Authenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="auditor1UserAccount"/>
 	</bean>
-	
-	<!--Annoucement -->
+
+	<!--Annoucement 
 
 	<bean id="announcement01" class="acme.entities.announcements.Announcement">
 		<property name="title" value="Sample announcement 01" />
@@ -120,7 +120,7 @@
 		<property name="text" value="Description for Sample announcement 03" />
 	</bean>
   
-  <!--Challenge -->
+  Challenge
 	
 		<bean id="challenge01" class="acme.entities.challenges.Challenge">
 		<property name="title" value="Challenge 01" />
@@ -140,7 +140,7 @@
 		<property name="bronze" value="80" />
 	</bean>
   
-  <!--SpamFilter -->
+  SpamFilter
 	<bean id="spamfilter01" class="acme.entities.spamFilters.SpamFilter">
 	<property name="badWords" 
 	value ="sex,nigeria,cialis,viagra,you've won,million dollar,has ganado,millon de dolares,sexo">
@@ -148,7 +148,7 @@
 	<property name="threshold" value="1.00" />	
 	</bean>
   
-  <!--Company --> 
+  Company 
   	<bean id="company01" class="acme.entities.companies.Company">
 		<property name="name" value="Mikasa, LLC" />
 		<property name="sector" value="Economy" />
@@ -173,7 +173,7 @@
 		<property name="incorporated" value="1" />
 	</bean>
 	
-	<!-- Investor Records -->
+	Investor Records
 	<bean id="investorRecords01" class="acme.entities.investorRecords.InvestorRecord">
 		<property name="investor" value="Elon Musk" />
 		<property name="sector" value="Technology" />
@@ -190,7 +190,7 @@
 		<property name="stars" value="5" />
 	</bean>
   
-	<!--Offer -->
+	Offer
 
 	<bean id="offer01" class="acme.entities.offers.Offer">
 		<property name="ticker" value="OABCD-01234" />
@@ -222,7 +222,7 @@
 		<property name="moneyMin" value="€150.00" />
   </bean>
   
-	<!--Requestt -->
+	Requestt
   
 		<bean id="requestt01" class="acme.entities.requests.Requestt">
 		<property name="title" value="Sample request 01" />
@@ -241,7 +241,7 @@
 		<property name="reward" value="456€" />
 		<property name="ticker" value="Raaaa-54321" />
 	</bean>
-	
+	 -->
 	<!-- Jobs -->
 	<bean id="job01" class="acme.entities.jobs.Job">
 		<property name="reference" value="EMP1-JOB1" />
@@ -255,12 +255,23 @@
 	</bean>
 	
 	<bean id="job02" class="acme.entities.jobs.Job">
-		<property name="reference" value="EMP2-JOB2" />
+		<property name="reference" value="EMP1-JOB2" />
 		<property name="status" value="Published" />
 		<property name="title" value="Sample job 02" />
 		<property name="deadline" value="2020/03/21 21:09" />
 		<property name="salary" value="$ 1,000.00" />
 		<property name="moreInfo" value="http://wwww.ej2.com" />
+		<property name="finalMode" value="true" />
+		<property name="employer" ref="employer1Employer" />
+	</bean>
+	
+	<bean id="job03" class="acme.entities.jobs.Job">
+		<property name="reference" value="EMP1-JOB3" />
+		<property name="status" value="Published" />
+		<property name="title" value="Sample job 03" />
+		<property name="deadline" value="2021/11/11 21:09" />
+		<property name="salary" value="$ 900.00" />
+		<property name="moreInfo" value="http://wwww.ej3.com" />
 		<property name="finalMode" value="true" />
 		<property name="employer" ref="employer1Employer" />
 	</bean>
@@ -315,7 +326,7 @@
   </bean>
 	
 	<!-- Audit Records -->
-  <bean id = "auditRecord01" class= "acme.entities.auditRecord.AuditRecord">
+  <bean id = "auditRecord01" class= "acme.entities.auditRecords.AuditRecord">
   		<property name="title"  value= "Audit Record 01"></property>
   		<property name="status"  value= "published"></property>
   		<property name="moment"  value= "2019/11/05 1:00"></property>
@@ -324,7 +335,7 @@
   		<property name="auditor"  ref= "auditor1Auditor"></property>
   </bean>  		
   		
-  <bean id = "auditRecord02" class= "acme.entities.auditRecord.AuditRecord">
+  <bean id = "auditRecord02" class= "acme.entities.auditRecords.AuditRecord">
   		<property name="title"  value= "Audit Record 02"></property>
   		<property name="status"  value= "draft"></property>
   		<property name="moment"  value= "2019/11/06 1:00"></property>

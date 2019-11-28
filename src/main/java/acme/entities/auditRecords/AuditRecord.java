@@ -1,11 +1,10 @@
 
-package acme.entities.auditRecord;
+package acme.entities.auditRecords;
 
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
@@ -42,7 +41,7 @@ public class AuditRecord extends DomainEntity {
 	//Relationship
 
 	@NotNull
-	@OneToOne(optional = false)
+	@ManyToOne(optional = false)
 	private Job					job;
 
 	@NotNull

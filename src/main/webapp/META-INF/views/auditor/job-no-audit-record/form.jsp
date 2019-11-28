@@ -17,12 +17,12 @@
 
 <acme:form>
 
-	<acme:form-textbox code="auditor.job-audit-record.form.label.title" path="reference" />
+	<acme:form-textbox code="auditor.job-audit-record.form.label.reference" path="reference" />
+	<acme:form-textbox code="auditor.job-audit-record.form.label.status" path="status" />
 	<acme:form-textbox code="auditor.job-audit-record.form.label.title" path="title" />
 	<acme:form-moment code="auditor.job-audit-record.form.label.deadline" path="deadline" />
 	<acme:form-textbox code="auditor.job-audit-record.form.label.salary" path="salary" />
 	<acme:form-url code="auditor.job-audit-record.form.label.moreInfo" path="moreInfo" />
-	<acme:form-url code="auditor.job-audit-record.form.label.auditRecord" path="auditRecord" />
 
 	<acme:form-return code="auditor.job-audit-record.form.button.return" />
 </acme:form>

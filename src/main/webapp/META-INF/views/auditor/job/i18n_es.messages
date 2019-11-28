@@ -9,11 +9,11 @@
 # they accept any liabilities with respect to them.
 
 
-auditor.job.form.label.title = Titulo:
+auditor.job.form.label.title = Título:
 auditor.job.form.label.reference = Referencia:
 auditor.job.form.label.moment = Fecha:
 auditor.job.form.label.deadline = Vencimiento:
-auditor.job.form.label.moreInfo = Mas Informacion:
+auditor.job.form.label.moreInfo = Más información:
 auditor.job.form.label.auditRecord = Registro de Auditoria:
 auditor.job.form.label.salary = Salario: 
 
@@ -22,7 +22,6 @@ auditor.job.form.button.return = Volver
 
 auditor.job.list.label.moment = Fecha
 auditor.job.list.label.reference = Referencia
-auditor.job.list.label.title = Titulo
+auditor.job.list.label.title = Título
 auditor.job.list.label.deadline = Vencimiento
-auditor.job.list.label.moreInfo = Mas Informacion
 auditor.job.list.label.salary = Salario 
