@@ -1,46 +1,45 @@
 
-package acme.features.authenticated.requestt;
+package acme.features.authenticated.thread;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.requests.Message;
+import acme.entities.messages.Messages;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AuthenticatedRequestListService implements AbstractListService<Authenticated, Message> {
+public class AuthenticatedThreadListService implements AbstractListService<Authenticated, Thread> {
 
 	@Autowired
-	AuthenticatedRequestRepository repository;
-
+	AuthenticatedThreadRepository repository;
 
 	@Override
-	public boolean authorise(final Request<Message> request) {
+	public boolean authorise(final Request<Thread> request) {
 		assert request != null;
 
 		return true;
 	}
 
 	@Override
-	public void unbind(final Request<Message> request, final Message entity, final Model model) {
+	public void unbind(final Request<Thread> request, final Thread entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "moment", "description", "reward", "deadline", "ticker");
+		request.unbind(entity, model, "title", "moment", "messages", "users");
 
 	}
 
 	@Override
-	public Collection<Message> findMany(final Request<Message> request) {
+	public Collection<Thread> findMany(final Request<Thread> request) {
 		assert request != null;
 
-		Collection<Message> result;
+		Collection<Thread> result;
 
 		result = this.repository.findManyAll();
 
