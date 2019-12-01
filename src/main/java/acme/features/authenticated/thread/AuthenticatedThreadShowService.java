@@ -4,11 +4,12 @@ package acme.features.authenticated.thread;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.messages.Messages;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
 import acme.framework.services.AbstractShowService;
+
+import acme.entities.threads.Thread;
 
 @Service
 public class AuthenticatedThreadShowService implements AbstractShowService<Authenticated, Thread> {

@@ -12,6 +12,8 @@ import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 import acme.framework.entities.Authenticated;
 
+import acme.entities.threads.Thread;
+
 @Controller
 @RequestMapping("/authenticated/thread/")
 public class AuthenticatedThreadController extends AbstractController<Authenticated, Thread> {

@@ -94,14 +94,27 @@
 				<ref bean="message3" />
 			</list>
 		</property>
-		<property name="users">
+		<property name="participations">
 			<list>
-				<ref bean="employer1Authenticated" />
-				<ref bean="worker1Authenticated" />
-				<ref bean="auditor1Authenticated" />
+				<ref bean="participation1" />
+				<ref bean="participation2" />
+				<ref bean="participation3" />
 			</list>
 		</property>
 	</bean>
+	<bean name="participation1" class="acme.entities.participations.Participations">
+		<property name="thread" ref="thread1" />
+		<property name="user" ref="employer1Authenticated" />
+	</bean>
+	<bean name="participation2" class="acme.entities.participations.Participations">
+		<property name="thread" ref="thread1" />
+		<property name="user" ref="worker1Authenticated" />
+	</bean>
+	<bean name="participation3" class="acme.entities.participations.Participations">
+		<property name="thread" ref="thread1" />
+		<property name="user" ref="auditor1Authenticated" />
+	</bean>
+	
 	<bean name="thread2" class="acme.entities.threads.Thread">
 		<property name="title" value="Ayuda para trabajo" />
 		<property name="moment" value="2019/01/09 17:34" />
@@ -112,12 +125,20 @@
 				<ref bean="message6" />
 			</list>
 		</property>
-		<property name="users">
+		<property name="participations">
 			<list>
-				<ref bean="employer1Authenticated" />
-				<ref bean="worker1Authenticated" />
+				<ref bean="participation4" />
+				<ref bean="participation5" />
 			</list>
 		</property>
+	</bean>
+	<bean name="participation4" class="acme.entities.participations.Participations">
+		<property name="thread" ref="thread2" />
+		<property name="user" ref="employer1Authenticated" />
+	</bean>
+	<bean name="participation5" class="acme.entities.participations.Participations">
+		<property name="thread" ref="thread2" />
+		<property name="user" ref="worker1Authenticated" />
 	</bean>
 
 	<bean name="employer1UserAccount"
