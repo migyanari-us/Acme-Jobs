@@ -6,7 +6,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.requests.Requestt;
+import acme.entities.requests.Message;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
@@ -15,21 +15,21 @@ import acme.framework.entities.Authenticated;
 import acme.framework.services.AbstractCreateService;
 
 @Service
-public class AuthenticatedRequestCreateService implements AbstractCreateService<Authenticated, Requestt> {
+public class AuthenticatedRequestCreateService implements AbstractCreateService<Authenticated, Message> {
 
 	@Autowired
 	AuthenticatedRequestRepository repository;
 
 
 	@Override
-	public boolean authorise(final Request<Requestt> request) {
+	public boolean authorise(final Request<Message> request) {
 		assert request != null;
 
 		return true;
 	}
 
 	@Override
-	public void bind(final Request<Requestt> request, final Requestt entity, final Errors errors) {
+	public void bind(final Request<Message> request, final Message entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -39,7 +39,7 @@ public class AuthenticatedRequestCreateService implements AbstractCreateService<
 	}
 
 	@Override
-	public void unbind(final Request<Requestt> request, final Requestt entity, final Model model) {
+	public void unbind(final Request<Message> request, final Message entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
@@ -54,15 +54,15 @@ public class AuthenticatedRequestCreateService implements AbstractCreateService<
 	}
 
 	@Override
-	public Requestt instantiate(final Request<Requestt> request) {
-		Requestt result;
+	public Message instantiate(final Request<Message> request) {
+		Message result;
 
-		result = new Requestt();
+		result = new Message();
 		return result;
 	}
 
 	@Override
-	public void validate(final Request<Requestt> request, final Requestt entity, final Errors errors) {
+	public void validate(final Request<Message> request, final Message entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -80,7 +80,7 @@ public class AuthenticatedRequestCreateService implements AbstractCreateService<
 	}
 
 	@Override
-	public void create(final Request<Requestt> request, final Requestt entity) {
+	public void create(final Request<Message> request, final Message entity) {
 		Date moment;
 		moment = new Date(System.currentTimeMillis() - 1);
 		entity.setMoment(moment);

@@ -1,44 +1,43 @@
 
-package acme.features.authenticated.requestt;
+package acme.features.authenticated.thread;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.requests.Message;
+import acme.entities.messages.Messages;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
 import acme.framework.services.AbstractShowService;
 
 @Service
-public class AuthenticatedRequestShowService implements AbstractShowService<Authenticated, Message> {
+public class AuthenticatedThreadShowService implements AbstractShowService<Authenticated, Thread> {
 
 	@Autowired
-	private AuthenticatedRequestRepository repository;
-
+	private AuthenticatedThreadRepository repository;
 
 	@Override
-	public boolean authorise(final Request<Message> request) {
+	public boolean authorise(final Request<Thread> request) {
 		assert request != null;
 
 		return true;
 	}
 
 	@Override
-	public void unbind(final Request<Message> request, final Message entity, final Model model) {
+	public void unbind(final Request<Thread> request, final Thread entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "moment", "description", "reward", "deadline", "ticker");
+		request.unbind(entity, model, "title", "moment", "messages", "users");
 
 	}
 
 	@Override
-	public Message findOne(final Request<Message> request) {
+	public Thread findOne(final Request<Thread> request) {
 		assert request != null;
 
-		Message result;
+		Thread result;
 		int id;
 
 		id = request.getModel().getInteger("id");
