@@ -1,8 +1,8 @@
 
 package acme.features.auditor.auditRecords;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +19,7 @@ import acme.framework.services.AbstractListService;
 public class AuditorJobsWithoutAuditRecordListMineService implements AbstractListService<Auditor, Job> {
 
 	@Autowired
-	AuditorJobsAuditRecordRepository repository;
+	AuditorRepository repository;
 
 
 	@Override
@@ -43,16 +43,19 @@ public class AuditorJobsWithoutAuditRecordListMineService implements AbstractLis
 	public Collection<Job> findMany(final Request<Job> request) {
 		assert request != null;
 
-		Collection<Job> result = new HashSet<>();
+		Collection<Job> jobs = new ArrayList<>();
 		Principal principal;
 		principal = request.getPrincipal();
 
 		Collection<AuditRecord> audits = this.repository.findManyByAuditorId(principal.getActiveRoleId());
 
 		for (AuditRecord a : audits) {
-			Job j = this.repository.findJobByAuditRecordId(a.getJob().getId());
-			result.add(j);
+			jobs.add(this.repository.findJobByAuditRecordId(a.getJob().getId()));
 		}
+
+		Collection<Job> result = this.repository.findAllJobs();
+
+		result.removeAll(jobs);
 
 		return result;
 	}

@@ -14,7 +14,7 @@ import acme.framework.services.AbstractShowService;
 public class AuditorJobsAuditRecordShowService implements AbstractShowService<Auditor, Job> {
 
 	@Autowired
-	private AuditorJobsAuditRecordRepository repository;
+	private AuditorRepository repository;
 
 
 	@Override
@@ -30,7 +30,7 @@ public class AuditorJobsAuditRecordShowService implements AbstractShowService<Au
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "status", "title", "deadline", "salary", "moreInfo");
+		request.unbind(entity, model, "id", "reference", "status", "title", "deadline", "salary", "moreInfo");
 
 	}
 
