@@ -6,15 +6,15 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.requests.Message;
+import acme.entities.requests.Requestt;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
 public interface AuthenticatedRequestRepository extends AbstractRepository {
 
 	@Query("select a from Requestt a where a.id = ?1")
-	Message findOneById(int id);
+	Requestt findOneById(int id);
 
 	@Query("select a from Requestt a")
-	Collection<Message> findManyAll();
+	Collection<Requestt> findManyAll();
 }
