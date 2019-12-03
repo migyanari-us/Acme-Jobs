@@ -1,3 +1,4 @@
+
 package acme.entities.threads;
 
 import java.beans.Transient;
@@ -5,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 import javax.persistence.Entity;
@@ -27,34 +29,33 @@ import lombok.Setter;
 @Setter
 public class Thread extends DomainEntity {
 
-	private static final long serialVersionUID = 43L;
+	private static final long			serialVersionUID	= 43L;
 
 	@NotBlank
-	private String title;
+	private String						title;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
-	private Date moment;
+	private Date						moment;
 
 	@NotNull
 	//Para mapear en base a los valores "thread" de mensajes
 	@OneToMany(mappedBy = "thread")
-	private Collection<Messages> messages;
+	private Collection<Messages>		messages;
 
 	@NotNull
 	//Asociación ManyToMany, pero creamos tabla intermedia y por tanto la referenciamos a ella
 	//1 thread - muchas participaciones
 	@OneToMany(mappedBy = "thread")
-	private Collection<Participations> participations;
-	
+	private Collection<Participations>	participations;
+
+
 	@Transient
-	public Collection<Authenticated> getUsers(){
+	public Collection<Authenticated> getUsers() {
 		List<Participations> result = new ArrayList<>();
-		result.addAll(participations);
-		
-		return result.stream().map(x->x.getUser()).collect(Collectors.toCollection(TreeSet::new));
+		result.addAll(this.participations);
+
+		return result.stream().map(x -> x.getUser()).collect(Collectors.toCollection(TreeSet::new));
 	}
-	
-	
 
 }
