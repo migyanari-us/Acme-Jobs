@@ -17,12 +17,13 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:list>
-	<acme:list-column code="authenticated.thread.list.label.moment"
-		path="moment" width="20%" />
-	<acme:list-column code="authenticated.thread.list.label.title"
+	<acme:list-column code="authenticated.messages.list.label.moment"
+		path="moment" width="30%" />
+	<acme:list-column code="authenticated.messages.list.label.title"
 		path="title" width="40%" />
-	<acme:list-column code="authenticated.thread.list.label.users"
-		path="users" width="20%" />
+	<acme:list-column code="authenticated.messages.list.label.tags"
+		path="tags" width="30%" />
 </acme:list>
-
-
+<acme:form readonly="true">
+<acme:form-return code="authenticated.messages.form.button.return" />
+</acme:form>

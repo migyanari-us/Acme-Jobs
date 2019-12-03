@@ -21,7 +21,6 @@
 		path="moment" width="50%" />
 	<acme:list-column code="authenticated.thread.list.label.title"
 		path="title" width="50%" />
-
 </acme:list>
 
 
