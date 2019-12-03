@@ -31,7 +31,7 @@ public interface AuditorRepository extends AbstractRepository {
 	@Query("select j from Job j where j.id != ?1")
 	Collection<Job> findJobWithoutAuditRecordId(int auditRecordId);
 
-	@Query("select a from AuditRecord a where a.id = ?1")
+	@Query("select a from AuditRecord a where a.job.id = ?1")
 	Collection<AuditRecord> findAuditRecordsByJobId(int jobId);
 
 }

@@ -1,18 +1,23 @@
 package acme.entities.threads;
 
+import java.beans.Transient;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
-import acme.datatypes.UserIdentity;
 import acme.entities.messages.Messages;
-import acme.framework.datatypes.Money;
+import acme.entities.participations.Participations;
+import acme.framework.entities.Authenticated;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,15 +32,29 @@ public class Thread extends DomainEntity {
 	@NotBlank
 	private String title;
 
-	@NotBlank
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	private Date moment;
 
-	@NotBlank
-	private List<Thread> messages;
+	@NotNull
+	//Para mapear en base a los valores "thread" de mensajes
+	@OneToMany(mappedBy = "thread")
+	private Collection<Messages> messages;
 
-	@NotBlank
-	private List<UserIdentity> users;
+	@NotNull
+	//Asociación ManyToMany, pero creamos tabla intermedia y por tanto la referenciamos a ella
+	//1 thread - muchas participaciones
+	@OneToMany(mappedBy = "thread")
+	private Collection<Participations> participations;
+	
+	@Transient
+	public List<Authenticated> getUsers(){
+		List<Participations> result = new ArrayList<>();
+		result.addAll(participations);
+		
+		return result.stream().map(x->x.getUser()).collect(Collectors.toList());
+	}
+	
+	
 
 }

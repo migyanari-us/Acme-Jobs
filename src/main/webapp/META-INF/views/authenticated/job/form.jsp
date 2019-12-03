@@ -10,5 +10,6 @@
 	<acme:form-money code="authenticated.job.form.label.salary" path="salary"/>
 	<acme:form-money code="authenticated.job.form.label.moreInfo" path="moreInfo"/>
 
-	<acme:form-return code="authenticated.job.form.label.button.return"/>
+	<acme:form-return code="authenticated.job.form.button.return"/>
+	<acme:form-submit code="authenticated.job.form.button.descriptor" action="/authenticated/descriptor/show?id=${id}" method="get" />
 </acme:form>

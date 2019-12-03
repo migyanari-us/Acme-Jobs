@@ -7,14 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import acme.entities.requests.Message;
+import acme.entities.requests.Requestt;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 import acme.framework.entities.Authenticated;
 
 @Controller
 @RequestMapping("/authenticated/requestt/")
-public class AuthenticatedRequestController extends AbstractController<Authenticated, Message> {
+public class AuthenticatedRequestController extends AbstractController<Authenticated, Requestt> {
 
 	@Autowired
 	private AuthenticatedRequestCreateService	createService;
