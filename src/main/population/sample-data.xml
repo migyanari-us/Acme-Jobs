@@ -168,6 +168,7 @@
 		<property name="userAccount" ref="auditor1UserAccount" />
 	</bean>
 
+
 	<!--Annoucement -->
 
 	<bean id="announcement01"
@@ -197,6 +198,7 @@
 		<property name="text"
 			value="Description for Sample announcement 03" />
 	</bean>
+
 
 	<!--Challenge -->
 
@@ -275,7 +277,6 @@
 	</bean>
 
 	<!--Offer -->
-
 	<bean id="offer01" class="acme.entities.offers.Offer">
 		<property name="ticker" value="OABCD-01234" />
 		<property name="title" value="Sample offer 01" />
@@ -307,7 +308,6 @@
 	</bean>
 
 	<!--Requestt -->
-
 	<bean id="requestt01" class="acme.entities.requests.Requestt">
 		<property name="title" value="Sample request 01" />
 		<property name="moment" value="2019/09/01 12:12" />
@@ -339,7 +339,7 @@
 	</bean>
 
 	<bean id="job02" class="acme.entities.jobs.Job">
-		<property name="reference" value="EMP2-JOB2" />
+		<property name="reference" value="EMP1-JOB2" />
 		<property name="status" value="Published" />
 		<property name="title" value="Sample job 02" />
 		<property name="deadline" value="2020/03/21 21:09" />
@@ -348,7 +348,18 @@
 		<property name="finalMode" value="true" />
 		<property name="employer" ref="employer1Employer" />
 	</bean>
-
+	
+	<bean id="job03" class="acme.entities.jobs.Job">
+		<property name="reference" value="EMP1-JOB3" />
+		<property name="status" value="Published" />
+		<property name="title" value="Sample job 03" />
+		<property name="deadline" value="2021/11/11 21:09" />
+		<property name="salary" value="$ 900.00" />
+		<property name="moreInfo" value="http://wwww.ej3.com" />
+		<property name="finalMode" value="true" />
+		<property name="employer" ref="employer1Employer" />
+	</bean>
+	
 	<!-- Desciptors -->
 	<bean id="descriptor01"
 		class="acme.entities.descriptors.Descriptor">
@@ -402,6 +413,27 @@
 		<property name="qualifications" value="Francés B2" />
 		<property name="job" ref="job02" />
 		<property name="worker" ref="worker1Worker" />
-	</bean>
-
+  </bean>
+	
+	<!-- Audit Records -->
+  <bean id = "auditRecord01" class= "acme.entities.auditRecords.AuditRecord">
+  		<property name="title"  value= "Audit Record 01"></property>
+  		<property name="status"  value= "published"></property>
+  		<property name="moment"  value= "2019/11/05 1:00"></property>
+  		<property name="body"  value= "Esto es el Audit Record 01"></property>
+  		<property name="job"  ref= "job01"></property>
+  		<property name="auditor"  ref= "auditor1Auditor"></property>
+  </bean>  		
+  		
+  <bean id = "auditRecord02" class= "acme.entities.auditRecords.AuditRecord">
+  		<property name="title"  value= "Audit Record 02"></property>
+  		<property name="status"  value= "draft"></property>
+  		<property name="moment"  value= "2019/11/06 1:00"></property>
+  		<property name="body"  value= "Esto es el Audit Record 02"></property>
+  		<property name="job"  ref= "job02"></property>
+  		<property name="auditor"  ref= "auditor1Auditor"></property>
+  </bean>
+	
+	
+	
 </beans>
