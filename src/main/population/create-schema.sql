@@ -37,6 +37,15 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `auditor` (
+       `id` integer not null,
+        `version` integer not null,
+        `user_account_id` integer,
+        `firm` varchar(255),
+        `responsibility_statement` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `authenticated` (
        `id` integer not null,
         `version` integer not null,
@@ -132,6 +141,18 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `messages` (
+       `id` integer not null,
+        `version` integer not null,
+        `body` varchar(255),
+        `moment` datetime(6),
+        `tags` varchar(255),
+        `title` varchar(255),
+        `thread_id` integer not null,
+        `user_id` integer not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `offer` (
        `id` integer not null,
         `version` integer not null,
@@ -144,6 +165,14 @@
         `text` varchar(255),
         `ticker` varchar(255),
         `title` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `participations` (
+       `id` integer not null,
+        `version` integer not null,
+        `thread_id` integer not null,
+        `user_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -177,6 +206,14 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `thread` (
+       `id` integer not null,
+        `version` integer not null,
+        `moment` datetime(6),
+        `title` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `user_account` (
        `id` integer not null,
         `version` integer not null,
@@ -193,8 +230,8 @@
        `id` integer not null,
         `version` integer not null,
         `user_account_id` integer,
-        `qualifications_record` varchar(255),
-        `skills_record` varchar(255),
+        `qualifications` varchar(255),
+        `skills` varchar(255),
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -245,6 +282,11 @@
        foreign key (`worker_id`) 
        references `worker` (`id`);
 
+    alter table `auditor` 
+       add constraint FK_clqcq9lyspxdxcp6o4f3vkelj 
+       foreign key (`user_account_id`) 
+       references `user_account` (`id`);
+
     alter table `authenticated` 
        add constraint FK_h52w0f3wjoi68b63wv9vwon57 
        foreign key (`user_account_id`) 
@@ -274,6 +316,26 @@
        add constraint `FK3rxjf8uh6fh2u990pe8i2at0e` 
        foreign key (`employer_id`) 
        references `employer` (`id`);
+
+    alter table `messages` 
+       add constraint `FKqg3nbb1eigjsqxvnh15ohxge0` 
+       foreign key (`thread_id`) 
+       references `thread` (`id`);
+
+    alter table `messages` 
+       add constraint `FK425jlfgp27srb308wipy7kfhq` 
+       foreign key (`user_id`) 
+       references `authenticated` (`id`);
+
+    alter table `participations` 
+       add constraint `FKb87athrvhjpdadeorrsulk88` 
+       foreign key (`thread_id`) 
+       references `thread` (`id`);
+
+    alter table `participations` 
+       add constraint `FK7jv04b7326650mnxewq248bot` 
+       foreign key (`user_id`) 
+       references `authenticated` (`id`);
 
     alter table `provider` 
        add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 
