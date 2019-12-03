@@ -15,6 +15,10 @@
        drop 
        foreign key `FKmbjdoxi3o93agxosoate4sxbt`;
 
+    alter table `auditor` 
+       drop 
+       foreign key FK_clqcq9lyspxdxcp6o4f3vkelj;
+
     alter table `authenticated` 
        drop 
        foreign key FK_h52w0f3wjoi68b63wv9vwon57;
@@ -39,6 +43,22 @@
        drop 
        foreign key `FK3rxjf8uh6fh2u990pe8i2at0e`;
 
+    alter table `messages` 
+       drop 
+       foreign key `FKqg3nbb1eigjsqxvnh15ohxge0`;
+
+    alter table `messages` 
+       drop 
+       foreign key `FK425jlfgp27srb308wipy7kfhq`;
+
+    alter table `participations` 
+       drop 
+       foreign key `FKb87athrvhjpdadeorrsulk88`;
+
+    alter table `participations` 
+       drop 
+       foreign key `FK7jv04b7326650mnxewq248bot`;
+
     alter table `provider` 
        drop 
        foreign key FK_b1gwnjqm6ggy9yuiqm0o4rlmd;
@@ -54,6 +74,8 @@
     drop table if exists `anonymous`;
 
     drop table if exists `application`;
+
+    drop table if exists `auditor`;
 
     drop table if exists `authenticated`;
 
@@ -73,13 +95,19 @@
 
     drop table if exists `job`;
 
+    drop table if exists `messages`;
+
     drop table if exists `offer`;
+
+    drop table if exists `participations`;
 
     drop table if exists `provider`;
 
     drop table if exists `requestt`;
 
     drop table if exists `spam_filter`;
+
+    drop table if exists `thread`;
 
     drop table if exists `user_account`;
 
