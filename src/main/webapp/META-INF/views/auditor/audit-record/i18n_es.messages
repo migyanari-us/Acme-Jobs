@@ -8,20 +8,12 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+auditor.audit-record.form.label.title = Título
+auditor.audit-record.form.label.body = Texto
+auditor.audit-record.form.label.moment = Fecha
+auditor.audit-record.form.label.status= Estado
 
-auditor.job.form.label.title = Título:
-auditor.job.form.label.reference = Referencia:
-auditor.job.form.label.moment = Fecha:
-auditor.job.form.label.deadline = Vencimiento:
-auditor.job.form.label.moreInfo = Más información:
-auditor.job.form.label.auditRecord = Registro de Auditoria:
-auditor.job.form.label.salary = Salario: 
+auditor.audit-record.form.button.return = Volver
 
-auditor.job.form.button.return = Volver
-
-
-auditor.job.list.label.moment = Fecha
-auditor.job.list.label.reference = Referencia
-auditor.job.list.label.title = Título
-auditor.job.list.label.deadline = Vencimiento
-auditor.job.list.label.salary = Salario 
+auditor.audit-record.list.label.title = Título
+auditor.audit-record.list.label.status= Estado

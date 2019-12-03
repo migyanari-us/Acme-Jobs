@@ -13,7 +13,7 @@ import acme.framework.components.Request;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AuditorAuditRecordListMineService implements AbstractListService<Auditor, AuditRecord> {
+public class AuditorAuditRecordListService implements AbstractListService<Auditor, AuditRecord> {
 
 	@Autowired
 	AuditorRepository repository;

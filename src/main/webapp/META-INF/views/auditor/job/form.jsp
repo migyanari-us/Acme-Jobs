@@ -24,17 +24,9 @@
 	<acme:form-url code="auditor.job.form.label.moreInfo" path="moreInfo" />
 
 	<acme:form-return code="auditor.job.form.button.return" />
+	<acme:form-submit code="auditor.job.form.button.descriptor" action="/authenticated/descriptor/show?id=${id}" method="get" />
+	<acme:form-submit code="auditor.job.form.button.audits" action="/auditor/audit-record/list?id=${id}" method="get" />
+	
 </acme:form>
-<button onclick="auditList()">Lista de Audit Records</button>
 
-<!-- <a href="/acme-jobs/auditor/audit-record/list_mine?id=" + path="id">Lista de Audit Records</a>
- -->
-<script>
-function auditList() {
-	var url_string = window.location.href;
-	var url = new URL(url_string);
-	var id = url.searchParams.get("id");
-
-	window.location.href = '/acme-jobs/auditor/audit-record/list_mine?id=' + id;
-}
 </script>

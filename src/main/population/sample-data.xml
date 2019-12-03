@@ -124,7 +124,6 @@
 		</property>
 	</bean>
 	
-	
 	<bean name="thread2" class="acme.entities.threads.Thread">
 		<property name="title" value="Ayuda para trabajo" />
 		<property name="moment" value="2019/01/09 17:34" />
@@ -142,7 +141,6 @@
 			</list>
 		</property>
 	</bean>
-	
 
 	<bean name="employer1UserAccount"
 		class="acme.framework.entities.UserAccount">
@@ -444,6 +442,12 @@
 		<property name="description" value="Trabajo de ejemplo 2" />
 		<property name="job" ref="job02" />
 	</bean>
+	
+	<bean id="descriptor03"
+		class="acme.entities.descriptors.Descriptor">
+		<property name="description" value="Trabajo de ejemplo 3" />
+		<property name="job" ref="job03" />
+	</bean>
 
 	<!-- Duties -->
 	<bean id="duty01" class="acme.entities.duties.Duty">
@@ -458,6 +462,20 @@
 		<property name="description" value="Trabajando x2" />
 		<property name="timePercentage" value="20" />
 		<property name="descriptor" ref="descriptor02" />
+	</bean>
+	
+	<bean id="duty03" class="acme.entities.duties.Duty">
+		<property name="title" value="Duty2" />
+		<property name="description" value="Trabajando x4" />
+		<property name="timePercentage" value="40" />
+		<property name="descriptor" ref="descriptor02" />
+	</bean>
+	
+	<bean id="duty04" class="acme.entities.duties.Duty">
+		<property name="title" value="Duty2" />
+		<property name="description" value="Trabajando x11" />
+		<property name="timePercentage" value="20" />
+		<property name="descriptor" ref="descriptor03" />
 	</bean>
 
 	<!-- Applications -->
