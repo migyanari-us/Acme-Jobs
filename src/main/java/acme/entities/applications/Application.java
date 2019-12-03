@@ -30,7 +30,7 @@ public class Application extends DomainEntity {
 
 	@Column(unique = true)
 	@NotBlank
-	@Length(min = 9, max = 14)
+	@Length(min = 5, max = 15)
 	private String				reference;
 
 	@Temporal(TemporalType.TIMESTAMP)

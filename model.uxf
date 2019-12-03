@@ -576,7 +576,7 @@ Employer
     <panel_attributes>lt=&lt;-
 m1=  1
 m2=0..*  -
- created by &gt;</panel_attributes>
+ created by ^</panel_attributes>
     <additional_attributes>40.0;10.0;10.0;310.0</additional_attributes>
   </element>
   <element>
