@@ -11,6 +11,7 @@
 
 authenticated.thread.form.label.title = Title
 authenticated.thread.form.label.moment = Moment
+authenticated.thread.form.button.messages = Messages
 authenticated.thread.form.button.return = Return
 
 authenticated.thread.list.label.moment = Moment

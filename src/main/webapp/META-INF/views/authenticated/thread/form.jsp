@@ -20,8 +20,8 @@
 		path="title" />
 	<acme:form-moment code="authenticated.thread.form.label.moment"
 		path="moment" />
-	<acme:form-textbox code="authenticated.thread.form.label.users"
-		path="users" />
+	<acme:form-submit action="/authenticated/messages/list?id=${id}" method="get"
+	code="authenticated.thread.form.button.messages"></acme:form-submit>
 
 	<acme:form-return code="authenticated.thread.form.button.return" />
 </acme:form>

@@ -13,7 +13,8 @@ import acme.entities.threads.Thread;
 public interface AuthenticatedThreadRepository extends AbstractRepository {
 
 	//Comprobando el formato de la tabla intermedia generada
-	@Query("select t from Thread t where t.id in(select a.thread.id from Participations a where a.user.id= ?1)")
+//	@Query("select t from Thread t where t.id in(select a.thread.id from Participations a where a.user.id= ?1)")
+	@Query("select distinct t from Thread t join t.users u on u.id=?1")
 	Collection<Thread> findManyByUserId(int id);
 
 	@Query("select t from Thread t where t.id = ?1")

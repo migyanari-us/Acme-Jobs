@@ -1,24 +1,20 @@
 
 package acme.entities.threads;
 
-import java.beans.Transient;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
-import java.util.TreeSet;
-import java.util.stream.Collectors;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Past;
 
 import acme.entities.messages.Messages;
-import acme.entities.participations.Participations;
 import acme.framework.entities.Authenticated;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
@@ -29,33 +25,26 @@ import lombok.Setter;
 @Setter
 public class Thread extends DomainEntity {
 
-	private static final long			serialVersionUID	= 43L;
+	private static final long serialVersionUID = 43L;
 
 	@NotBlank
-	private String						title;
+	private String title;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
-	private Date						moment;
-
-	@NotNull
+	private Date moment;
+	
+	@NotEmpty
 	//Para mapear en base a los valores "thread" de mensajes
 	@OneToMany(mappedBy = "thread")
-	private Collection<Messages>		messages;
+	private Collection<@Valid Messages> messages;	
 
-	@NotNull
-	//Asociación ManyToMany, pero creamos tabla intermedia y por tanto la referenciamos a ella
-	//1 thread - muchas participaciones
-	@OneToMany(mappedBy = "thread")
-	private Collection<Participations>	participations;
-
-
-	@Transient
-	public Collection<Authenticated> getUsers() {
-		List<Participations> result = new ArrayList<>();
-		result.addAll(this.participations);
-
-		return result.stream().map(x -> x.getUser()).collect(Collectors.toCollection(TreeSet::new));
-	}
+	@NotEmpty
+	//Usamos ManyToMany, ya que no nos hará falta buscar ninguna propiedad de usuarios
+	//y no nos hará falta acceder a la tabla intermedia
+	@ManyToMany
+	private Collection<@Valid Authenticated> users;
+	
+	
 
 }
