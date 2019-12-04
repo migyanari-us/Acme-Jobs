@@ -2,7 +2,6 @@
 package acme.features.authenticated.messages;
 
 import java.util.Collection;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +11,6 @@ import acme.entities.threads.Thread;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
-import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
@@ -25,11 +23,8 @@ public class AuthenticatedMessageListService implements AbstractListService<Auth
 	@Override
 	public boolean authorise(final Request<Messages> request) {
 		assert request != null;
-		Thread thread = this.repository.findThreadById(request.getModel().getInteger("id"));
-		List<Authenticated> authenticateds = (List<Authenticated>) thread.getUsers();
-		Principal principal = request.getPrincipal();
-		boolean result = authenticateds.stream().filter(x -> x.getUserAccount().getId() == principal.getAccountId()).count() > 0;
-		return result;
+
+		return true;
 	}
 
 	@Override

@@ -25,26 +25,24 @@ import lombok.Setter;
 @Setter
 public class Thread extends DomainEntity {
 
-	private static final long serialVersionUID = 43L;
+	private static final long					serialVersionUID	= 43L;
 
 	@NotBlank
-	private String title;
+	private String								title;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
-	private Date moment;
-	
+	private Date								moment;
+
 	@NotEmpty
 	//Para mapear en base a los valores "thread" de mensajes
 	@OneToMany(mappedBy = "thread")
-	private Collection<@Valid Messages> messages;	
+	private Collection<@Valid Messages>			messages;
 
 	@NotEmpty
 	//Usamos ManyToMany, ya que no nos hará falta buscar ninguna propiedad de usuarios
 	//y no nos hará falta acceder a la tabla intermedia
 	@ManyToMany
-	private Collection<@Valid Authenticated> users;
-	
-	
+	private Collection<@Valid Authenticated>	users;
 
 }

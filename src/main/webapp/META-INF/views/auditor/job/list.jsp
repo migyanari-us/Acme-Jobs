@@ -21,7 +21,7 @@
 	<acme:list-column code="auditor.job.list.label.reference" path="reference" width="20%"/>
 	<acme:list-column code="auditor.job.list.label.title" path="title" width="20%"/>
 	<acme:list-column code="auditor.job.list.label.deadline" path="deadline" width="20%"/>
-	<acme:list-column code="auditor.job.list.label.salary" path="salary" width="20%"/>
+	<acme:list-column code="auditor.job.list.label.status" path="status" width="20%"/>
 
 	</acme:list>
 

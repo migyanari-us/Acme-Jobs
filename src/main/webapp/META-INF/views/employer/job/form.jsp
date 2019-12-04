@@ -4,11 +4,13 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:form-textarea code="employer.job.form.label.reference" path="reference"/>
-	<acme:form-textbox code="employer.job.form.label.title" path="title"/>
-	<acme:form-moment code="employer.job.form.label.deadline" path="deadline"/>
-	<acme:form-money code="employer.job.form.label.salary" path="salary"/>
-	<acme:form-money code="employer.job.form.label.moreInfo" path="moreInfo"/>
-	
-	<acme:form-return code="employer.job.form.label.button.return"/>
+	<acme:form-textarea code="authenticated.job.form.label.reference" path="reference"/>
+	<acme:form-textbox code="authenticated.job.form.label.title" path="title"/>
+	<acme:form-moment code="authenticated.job.form.label.deadline" path="deadline"/>
+	<acme:form-money code="authenticated.job.form.label.salary" path="salary"/>
+	<acme:form-money code="authenticated.job.form.label.moreInfo" path="moreInfo"/>
+
+	<acme:form-return code="authenticated.job.form.button.return"/>
+	<acme:form-submit code="authenticated.job.form.button.descriptor" action="/authenticated/descriptor/show?id=${id}" method="get" />
+	<acme:form-submit code="authenticated.job.form.button.audits" action="/authenticated/audit-record/list?id=${id}" method="get" />
 </acme:form>

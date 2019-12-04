@@ -1,3 +1,4 @@
+
 <%--
 - list.jsp
 -
@@ -16,8 +17,10 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:list>
-	<acme:list-column code="authenticated.job.list.label.reference" path="reference" width="20%"/>
-	<acme:list-column code="authenticated.job.list.label.title" path="title" width="20%"/>			
-	<acme:list-column code="authenticated.job.list.label.deadline" path="deadline" width="20%"/>
-	<acme:list-column code="authenticated.job.list.label.salary" path="salary" width="20%"/>	
-</acme:list>
+
+	<acme:list-column code="auditor.audit-record.form.label.title" path="title" width="40%"/>
+	<acme:list-column code="auditor.audit-record.form.label.status" path="status" width="20%"/>
+
+	</acme:list>
+
+

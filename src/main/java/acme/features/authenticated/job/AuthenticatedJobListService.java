@@ -33,7 +33,7 @@ public class AuthenticatedJobListService implements AbstractListService<Authenti
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "title", "deadline");
+		request.unbind(entity, model, "reference", "title", "deadline", "status");
 
 	}
 
